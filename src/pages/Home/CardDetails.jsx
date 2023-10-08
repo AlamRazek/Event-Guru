@@ -1,10 +1,10 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 
 const CardDetails = () => {
   const data = useLoaderData();
 
-  const { id } = useParams();
+  const { id } = data;
 
   return (
     <div>
