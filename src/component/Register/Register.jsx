@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../pages/Navbar/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const notify = () => toast("Successfully registered");
 
   const handleRegister = (e) => {
     e.preventDefault();
-
-    // const form = new FormData(e.currentTarget);
-    // const email = form.get("email");
-    // const password = form.get("password");
-    // console.log(email, password);
 
     const form = new FormData(e.currentTarget);
     const name = form.get("name");
@@ -20,13 +19,22 @@ const Register = () => {
     const password = form.get("password");
     console.log(name, email, password);
 
-    createUser(email, password)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (!/^(?=.*[A-Za-z])(?=.*[@#$%^&+=!]).{6,}$/.test(password)) {
+      setError(
+        "Error: password should have Minimum six characters ,at least one capital letter and special character."
+      );
+      return;
+    } else {
+      setError("");
+      createUser(email, password)
+        .then((res) => {
+          notify();
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -89,12 +97,14 @@ const Register = () => {
           <button className="btn btn-primary">Register</button>
         </div>
       </form>
+      <p className="text-red-600 text-center text-lg">{error}</p>
       <p className="text-center pb-3 px-3 md:pb-6 md:px-6">
         Already have an account? please
         <Link className="font-bold text-blue-800 underline" to={"/login"}>
           Login
         </Link>
       </p>
+      <ToastContainer />
     </div>
   );
 };

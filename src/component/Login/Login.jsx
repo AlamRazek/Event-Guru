@@ -18,11 +18,11 @@ const Login = () => {
 
     userSignIn(email, password)
       .then((res) => {
-        console.log(res);
+        console.log(res.user);
         navigate(location?.state ? location.state : "/");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -47,7 +47,7 @@ const Login = () => {
           </label>
           <input
             type="email"
-            placeholder="email"
+            placeholder="Email"
             name="email"
             className="input input-bordered"
             required
@@ -59,7 +59,7 @@ const Login = () => {
           </label>
           <input
             type="password"
-            placeholder="password"
+            placeholder="Password"
             name="password"
             className="input input-bordered"
             required

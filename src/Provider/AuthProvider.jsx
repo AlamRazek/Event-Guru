@@ -17,13 +17,16 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // signUp/CreateUser
+
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  //   signIn user
+
   const userSignIn = (email, password) => {
-    setLoading(true);
     signInWithEmailAndPassword(auth, email, password);
   };
 
