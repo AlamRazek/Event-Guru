@@ -7,6 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 
@@ -23,13 +24,7 @@ const AuthProvider = ({ children }) => {
 
   const userSignIn = (email, password) => {
     setLoading(true);
-    signInWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        console.log(res.user);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    signInWithEmailAndPassword(auth, email, password);
   };
 
   useEffect(() => {
