@@ -17,10 +17,10 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-base-200">
+    <div>
       <Navbar></Navbar>
 
-      <div>
+      <div data-aos="fade-right">
         <h2 className="text-2xl text-center my-2 md:my-6 lg:my-6 font-semibold">
           Please Login
         </h2>
@@ -29,6 +29,7 @@ const Login = () => {
       <form
         className="card-body md:w-3/4 lg:w-1/2 mx-auto"
         onSubmit={handleLogin}
+        data-aos="fade-left"
       >
         <div className="form-control">
           <label className="label">

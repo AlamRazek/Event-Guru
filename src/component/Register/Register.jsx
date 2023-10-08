@@ -33,7 +33,7 @@ const Register = () => {
     <div>
       <Navbar></Navbar>
 
-      <div>
+      <div data-aos="fade-down">
         <h2 className="text-2xl text-center my-2 md:my-6 lg:my-6 font-semibold">
           Please Register
         </h2>
@@ -42,6 +42,7 @@ const Register = () => {
       <form
         className="card-body md:w-3/4 lg:w-1/2 mx-auto"
         onSubmit={handleRegister}
+        data-aos="fade-up"
       >
         <div className="form-control">
           <label className="label">
