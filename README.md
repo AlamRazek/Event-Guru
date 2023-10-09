@@ -1,6 +1,6 @@
 ###Event-Guru
 
-live link:
+live link: https://event-guru-91ee5.web.app/
 
 5. functionality of this website:
 
