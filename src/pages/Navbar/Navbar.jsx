@@ -18,19 +18,48 @@ const Navbar = () => {
   const Links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          style={({ isActive }) => ({
+            color: isActive ? "#fff" : "#545e6f",
+            background: isActive ? "#7600dc" : "",
+          })}
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/about">About</NavLink>
+        <NavLink
+          to="/about"
+          style={({ isActive }) => ({
+            color: isActive ? "#fff" : "#545e6f",
+            background: isActive ? "#7600dc" : "",
+          })}
+        >
+          About
+        </NavLink>
       </li>
+      {/*  <li>
+        <NavLink
+          to="/gallery"
+          style={({ isActive }) => ({
+            color: isActive ? "#fff" : "#545e6f",
+            background: isActive ? "#7600dc" : "",
+          })}
+        >
+          Gallery
+        </NavLink>
+      </li> */}
       <li>
-        <NavLink to="/gallery">Gallery</NavLink>
-      </li>
-      <li>
-        <NavLink to="/blog">Blog</NavLink>
-      </li>
-      <li>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink
+          to="/blog"
+          style={({ isActive }) => ({
+            color: isActive ? "#fff" : "#545e6f",
+            background: isActive ? "#7600dc" : "",
+          })}
+        >
+          Blog
+        </NavLink>
       </li>
     </>
   );

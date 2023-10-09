@@ -3,18 +3,19 @@ import Root from "../layout/Root/Root";
 import Home from "../pages/Home/Home";
 import Gallery from "../pages/Gallery/Gallery";
 import About from "../pages/About/About";
-import News from "../pages/Blogs/Blog";
 import Contact from "../pages/Contact/Contact";
 import Login from "../component/Login/Login";
 import Register from "../component/Register/Register";
 import CardDetails from "../pages/Home/CardDetails";
 import PrivateRoute from "./PrivateRoute";
-import Blog from "../pages/Blogs/Blog";
+import Blogs from "../pages/Blogs/Blogs";
+import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -40,7 +41,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blog></Blog>,
+        element: (
+          <PrivateRoute>
+            <Blogs></Blogs>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/blog.json"),
       },
       {
         path: "/contact",

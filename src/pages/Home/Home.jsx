@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Header from "../../component/Header/Header";
 import Navbar from "../Navbar/Navbar";
 import Card from "./Card";
+import Footer from "../../component/Footer/Footer";
 
 const Home = () => {
   const data = useLoaderData();
@@ -25,20 +26,27 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="card lg:card-side bg-base-100 shadow-xl">
-        <figure>
+      <div className="card lg:card-side bg-base-200 shadow-xl">
+        <figure className="max-h-96 w-[80%] mx-auto rounded-sm rounded-tr-[40px] rounded-bl-[40px]">
           <img
-            src="/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+            src="https://i.ibb.co/F787pFC/chuttersnap-a-En-H4h-J-Mrs-unsplash.jpg"
             alt="Album"
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">New album is released!</h2>
-          <p>Click the button to listen on Spotiwhy app.</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Listen</button>
-          </div>
+          <h2 className="card-title text-3xl ">
+            What we do,We do <br />
+            With Passion
+          </h2>
+          <p>
+            Our Work is our passion which we do with great care and for this we
+            have a great team who are very skilled.
+          </p>
         </div>
+      </div>
+
+      <div className="mt-10">
+        <Footer></Footer>
       </div>
     </div>
   );
