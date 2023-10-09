@@ -44,6 +44,33 @@ const Home = () => {
           </p>
         </div>
       </div>
+      <div className="flex  md:flex-row justify-around my-4 lg:my-10">
+        <div
+          className="card card-compact w-[40%] bg-base-100 shadow-xl "
+          data-aos="flip-left"
+        >
+          <figure>
+            <img
+              src="/thomas-william-OAVqa8hQvWI-unsplash (1).jpg"
+              alt="Shoes"
+            />
+          </figure>
+          <div className="card-body">
+            <p>Best possible decration</p>
+          </div>
+        </div>
+        <div
+          className="card card-compact w-[40%] bg-base-100 shadow-xl "
+          data-aos="flip-right"
+        >
+          <figure>
+            <img src="/wedding-venue1.jpg" alt="Shoes" />
+          </figure>
+          <div className="card-body">
+            <p>Elegant decorations for all</p>
+          </div>
+        </div>
+      </div>
 
       <div className="mt-10">
         <Footer></Footer>
