@@ -2,20 +2,25 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../pages/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
+
+  const notify1 = () => toast("Successfully Logged in");
+  const notify2 = (err) => toast(err);
 
   const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
+        notify1();
         console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+        notify2(err.message);
       });
   };
 
@@ -96,6 +101,7 @@ const Login = () => {
           Register
         </Link>
       </p>
+      <ToastContainer />
     </div>
   );
 };

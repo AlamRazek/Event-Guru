@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../pages/Navbar/Navbar";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -6,18 +6,22 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateProfiles } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const [error, setError] = useState("");
-  const notify = () => toast("Successfully registered");
+  const notify1 = (res) => toast(res);
+  const notify2 = (err) => toast(err);
 
   const handleRegister = (e) => {
     e.preventDefault();
 
     const form = new FormData(e.currentTarget);
     const name = form.get("name");
+    const photo = form.get("photo");
     const email = form.get("email");
     const password = form.get("password");
-    console.log(name, email, password);
+    console.log(name, email, password, photo);
 
     if (!/^(?=.*[A-Za-z])(?=.*[@#$%^&+=!]).{6,}$/.test(password)) {
       setError(
@@ -28,11 +32,14 @@ const Register = () => {
       setError("");
       createUser(email, password)
         .then((res) => {
-          notify();
-          console.log(res);
+          updateProfiles(name, photo).then(() => {
+            notify1(res.user);
+            navigate("/");
+          });
         })
         .catch((err) => {
           console.log(err);
+          notify2(err.message);
         });
     }
   };

@@ -97,7 +97,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{Links}</ul>
       </div>
       <div className="navbar-end">
-        <p>{user?.email}</p>
+        <p>{user?.displayName}</p>
         <span>
           {user ? (
             <div className="avatar">

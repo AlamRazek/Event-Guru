@@ -3,8 +3,8 @@ import Footer from "../../component/Footer/Footer";
 const Blog = ({ data }) => {
   const { image, title, description } = data;
   return (
-    <div>
-      <div className="card card-side bg-base-100 shadow-xl ">
+    <div className="p-4">
+      <div className="card card-side bg-base-100 shadow-xl">
         <figure className="max-w-xl max-h-96">
           <img src={image} alt="Movie" />
         </figure>
