@@ -27,7 +27,7 @@ const Navbar = () => {
         <NavLink to="/gallery">Gallery</NavLink>
       </li>
       <li>
-        <NavLink to="/news">News</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
       </li>
       <li>
         <NavLink to="/contact">Contact</NavLink>
@@ -69,6 +69,17 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <p>{user?.email}</p>
+        <span>
+          {user ? (
+            <div className="avatar">
+              <div className="w-[54px] rounded-full mx-2">
+                <img src="/public/alvin-mahmudov-9_XfcBxf_uo-unsplash.jpg" />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </span>
         {user ? (
           <button onClick={handleLogOut} className="btn">
             Logout

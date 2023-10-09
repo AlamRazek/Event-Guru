@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  const { userSignIn } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -16,13 +16,13 @@ const Login = () => {
     const email = form.get("email");
     const password = form.get("password");
 
-    userSignIn(email, password)
+    signIn(email, password)
       .then((res) => {
-        console.log(res.user);
+        console.log(res);
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.message);
       });
   };
 
@@ -30,7 +30,7 @@ const Login = () => {
     <div>
       <Navbar></Navbar>
 
-      <div data-aos="fade-right">
+      <div data-aos="fade-down">
         <h2 className="text-2xl text-center my-2 md:my-6 lg:my-6 font-semibold">
           Please Login
         </h2>
@@ -39,7 +39,7 @@ const Login = () => {
       <form
         className="card-body md:w-3/4 lg:w-1/2 mx-auto"
         onSubmit={handleLogin}
-        data-aos="fade-left"
+        data-aos="fade-up"
       >
         <div className="form-control">
           <label className="label">

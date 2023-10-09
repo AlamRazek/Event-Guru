@@ -3,12 +3,13 @@ import Root from "../layout/Root/Root";
 import Home from "../pages/Home/Home";
 import Gallery from "../pages/Gallery/Gallery";
 import About from "../pages/About/About";
-import News from "../pages/News/News";
+import News from "../pages/Blogs/Blog";
 import Contact from "../pages/Contact/Contact";
 import Login from "../component/Login/Login";
 import Register from "../component/Register/Register";
 import CardDetails from "../pages/Home/CardDetails";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../pages/Blogs/Blog";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("data.json"),
+        loader: () => fetch("/data.json"),
       },
       {
         path: "/card/:id",
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
             <CardDetails></CardDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("data.json"),
+        loader: () => fetch("/data.json"),
       },
       {
         path: "/about",
@@ -38,8 +39,8 @@ const router = createBrowserRouter([
         element: <Gallery></Gallery>,
       },
       {
-        path: "/news",
-        element: <News></News>,
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/contact",
