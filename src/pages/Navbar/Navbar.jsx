@@ -102,7 +102,7 @@ const Navbar = () => {
           {user ? (
             <div className="avatar">
               <div className="w-[54px] rounded-full mx-2">
-                <img src="/public/alvin-mahmudov-9_XfcBxf_uo-unsplash.jpg" />
+                <img src={user?.photoURL} />
               </div>
             </div>
           ) : (

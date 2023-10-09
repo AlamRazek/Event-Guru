@@ -4,10 +4,20 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
 
   const navigate = useNavigate();
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -75,6 +85,11 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
       </form>
+      <div className="text-center ">
+        <button className="btn btn-accent " onClick={handleGoogleSignIn}>
+          Google login
+        </button>
+      </div>
       <p className="text-center pb-3 px-3 md:pb-6 md:px-6">
         Do not have an account? please{" "}
         <Link className="font-bold text-blue-800 underline" to={"/register"}>
